@@ -15,3 +15,7 @@ uvicorn = "^0.28.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+
+run = "uvicorn main:app --reload"
