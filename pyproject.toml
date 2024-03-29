@@ -19,6 +19,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
-
 run = "uvicorn main:app --reload"
 test = "pytest -v testes.py"
