@@ -1,10 +1,11 @@
+from typing import Dict, List
+
 from fastapi import FastAPI
-from typing import List, Dict
 
 app = FastAPI()
 
 
-produtos : List[Dict[str, any]] = [
+produtos: List[Dict[str, any]] = [
     {
         "id": 1,
         "nome": "Smartphone",
@@ -28,16 +29,19 @@ produtos : List[Dict[str, any]] = [
     },
 ]
 
+
 @app.get("/")
 def ola_mundo():
     return {"Hello": "World"}
+
 
 @app.get("/produtos")
 def buscar_produtos():
     return produtos
 
+
 @app.get("/produtos/{id}")
-def buscar_um_produto(id : int):
+def buscar_um_produto(id: int):
     for produto in produtos:
         if produto["id"] == id:
             return produto
