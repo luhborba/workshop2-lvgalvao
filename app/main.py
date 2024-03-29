@@ -1,3 +1,5 @@
+"""Arquivo de API."""
+
 from typing import Dict, List
 
 from fastapi import FastAPI
@@ -32,16 +34,27 @@ produtos: List[Dict[str, any]] = [
 
 @app.get("/")
 def ola_mundo():
+    """Rota raiz da API."""
     return {"Hello": "World"}
 
 
 @app.get("/produtos")
 def buscar_produtos():
+    """Rota de Buscar Todos os Produtos da API."""
     return produtos
 
 
 @app.get("/produtos/{id}")
 def buscar_um_produto(id: int):
+    """
+    Rota de Buscar Um Produto da API.
+
+    Args:
+        id (int): ID do Produto.
+
+    Returns:
+        Dict[str, any]: Dicionário com os dados do Produto.
+    """
     for produto in produtos:
         if produto["id"] == id:
             return produto
