@@ -21,3 +21,13 @@ def test_buscar_produtos_status_code():
 def test_tamanho_buscar_produtos():
     reponse = client.get("/produtos")
     assert len(reponse.json()) == 3
+
+def test_pega_um_produto():
+    response = client.get("/produtos/1")
+    assert response.json()  == {
+        "id": 1,
+        "nome": "Smartphone",
+        "descricao": "Um telefone com funcionamento de computador",
+        "preco": 1500.00,
+        "disponivel": True,
+    }
